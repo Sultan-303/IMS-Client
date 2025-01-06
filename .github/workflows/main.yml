@@ -39,6 +39,9 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: ./ims-client
     steps:
       - name: Checkout
         uses: actions/checkout@v4
