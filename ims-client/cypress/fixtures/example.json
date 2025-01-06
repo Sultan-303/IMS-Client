@@ -1,0 +1,7 @@
+{
+  "name": "Cypress Test",
+  "type": "object",
+  "data": {
+    "message": "Hello, World!"
+  }
+}
