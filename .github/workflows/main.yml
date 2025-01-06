@@ -50,5 +50,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          working-directory: ./ims-client
           build: npm run build
           start: npm run dev
