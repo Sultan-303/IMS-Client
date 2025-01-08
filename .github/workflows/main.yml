@@ -50,8 +50,10 @@ jobs:
       - name: Start Backend Dev Environment
         run: |
           pwd
+          dir
           cd backend
           pwd
+          dir
           docker compose -f docker-compose.dev.yml build
           docker compose -f docker-compose.dev.yml up -d
 
