@@ -39,10 +39,19 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: ./ims-client
     steps:
+      - name: Checkout Backend
+        uses: actions/checkout@v4
+        with:
+          repository: Sultan-303/IMS-Backend
+          path: backend
+      
+      - name: Start Backend Dev Environment
+        run: |
+          cd backend
+          docker-compose -f docker-compose.dev.yml build
+          docker-compose -f docker-compose.dev.yml up -d
+
       - name: Checkout
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
