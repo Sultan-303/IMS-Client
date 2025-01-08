@@ -50,8 +50,8 @@ jobs:
       - name: Start Backend Dev Environment
         run: |
           cd backend
-          docker-compose -f docker-compose.dev.yml build
-          docker-compose -f docker-compose.dev.yml up -d
+          docker compose -f docker-compose.dev.yml build
+          docker compose -f docker-compose.dev.yml up -d
 
       - name: Checkout
         uses: actions/checkout@v4
