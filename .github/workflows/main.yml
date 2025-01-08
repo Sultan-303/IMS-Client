@@ -47,13 +47,21 @@ jobs:
           path: backend
           token: ${{ secrets.GH_PAT }}
       
+      - name: Debug Directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "List files in current directory:"
+          ls -la
+          echo "Creating docker-compose.dev.yml in backend directory"
+          cp docker-compose.yml backend/docker-compose.dev.yml || echo "Copy failed"
+          echo "List files in backend directory:"
+          cd backend
+          ls -la
+      
       - name: Start Backend Dev Environment
         run: |
-          pwd
-          dir
           cd backend
-          pwd
-          dir
           docker compose -f docker-compose.dev.yml build
           docker compose -f docker-compose.dev.yml up -d
 
