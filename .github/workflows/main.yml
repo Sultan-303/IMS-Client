@@ -45,6 +45,7 @@ jobs:
         with:
           repository: Sultan-303/IMS-Backend
           path: backend
+          token: ${{ secrets.GH_PAT }}
       
       - name: Start Backend Dev Environment
         run: |
