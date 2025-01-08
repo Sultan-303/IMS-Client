@@ -47,17 +47,35 @@ jobs:
           path: backend
           token: ${{ secrets.GH_PAT }}
       
-      - name: Debug Directory
+      - name: Create dev compose file
         run: |
-          echo "Current directory:"
-          pwd
-          echo "List files in current directory:"
-          ls -la
-          echo "Creating docker-compose.dev.yml in backend directory"
-          cp docker-compose.yml backend/docker-compose.dev.yml || echo "Copy failed"
-          echo "List files in backend directory:"
-          cd backend
-          ls -la
+          cat > backend/docker-compose.dev.yml << 'EOL'
+          version: '3.8'
+          services:
+            ims-api-dev:
+              build: .
+              ports:
+                - "5079:8080"
+              environment:
+                - ASPNETCORE_ENVIRONMENT=Development
+                - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=ims_dev;Username=postgres;Password=postgres
+              depends_on:
+                - postgres-dev
+
+            postgres-dev:
+              image: postgres:latest
+              environment:
+                - POSTGRES_DB=ims_dev
+                - POSTGRES_USER=postgres
+                - POSTGRES_PASSWORD=postgres
+              ports:
+                - "5432:5432"
+              volumes:
+                - postgres-dev-data:/var/lib/postgresql/data
+
+          volumes:
+            postgres-dev-data:
+          EOL
       
       - name: Start Backend Dev Environment
         run: |
