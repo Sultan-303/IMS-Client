@@ -1,0 +1,51 @@
+.itemTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.itemTable th, .itemTable td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.itemTable th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.itemTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.itemTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.editButton, .stockButton {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editButton {
+    background-color: #007bff;
+    color: white;
+}
+
+.editButton:hover {
+    background-color: #0056b3;
+}
+
+.stockButton {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.stockButton:hover {
+    background-color: #117a8b;
+}

@@ -1,0 +1,79 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #000; /* Set text color to black */
+}
+
+.h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    color: #000; /* Ensure table text is black */
+}
+
+.table th {
+    background-color: #f9f9f9;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.addButton, .editButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.addButton:hover, .editButton:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .table th, .table td {
+        padding: 8px;
+    }
+
+    .addButton, .editButton {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .h1 {
+        font-size: 24px;
+    }
+}

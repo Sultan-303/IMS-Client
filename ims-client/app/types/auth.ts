@@ -6,3 +6,11 @@ export interface LoginRequest {
 export interface LoginResponse {
     token: string;
 }
+
+export interface User {
+    id: number;
+    username: string;
+    email: string;
+    role: string;
+    isActive: boolean;
+}
